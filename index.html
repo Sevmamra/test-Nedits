@@ -894,8 +894,31 @@
       once: true
     });
 
-    // Set current year in footer
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    /* footer spacer + year fix: run after DOM loads */
+(function () {
+  function updateFooterSpacer() {
+    const footer = document.querySelector('.site-footer');
+    if (!footer) return;
+
+    let spacer = document.querySelector('.footer-spacer');
+    if (!spacer) {
+      spacer = document.createElement('div');
+      spacer.className = 'footer-spacer';
+      footer.parentNode.insertBefore(spacer, footer);
+    }
+
+    // Use offsetHeight (includes padding + inner height)
+    spacer.style.height = footer.offsetHeight + 'px';
+  }
+
+  // run on load and on resize (so responsive heights work)
+  window.addEventListener('load', updateFooterSpacer);
+  window.addEventListener('resize', updateFooterSpacer);
+
+  // --- small fix: set current year (you had mismatch id previously) ---
+  const yearEl = document.getElementById('current-year'); // matches <span id="current-year">
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+})();
   </script>
 </body>
 </html>
