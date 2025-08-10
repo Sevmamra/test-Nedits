@@ -1005,7 +1005,7 @@ footer {
 body::after {
   content: "";
   display: block;
-  height: 100px; /* footer height ke barabar */
+  height: 80px; /* footer height ke barabar */
 }
 
 .footer-spacer {
