@@ -994,11 +994,12 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #222; /* apna original color rakh */
+  background: #111;
   color: #fff;
   text-align: center;
+  padding-top: 100px;
   padding: 20px 0;
-  z-index: -1; /* content ke peeche */
+  z-index: 1; /* content ke peeche */
 }
 
 body::after {
