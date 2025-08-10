@@ -724,14 +724,15 @@ blockquote {
 }
 
 .contact-wave {
-  position: absolute;
-  top: -100px;
-  left: 0;
   width: 100%;
-  height: 100px;
-  z-index: 0;
+  height: 120px;        /* matches the SVG viewBox height */
+  overflow: hidden;
+  line-height: 0;
+  display: block;
+  /* keep it visually above footer */
+  position: relative;
+  z-index: 1;
 }
-
 .contact-wave svg {
   width: 100%;
   height: 100%;
